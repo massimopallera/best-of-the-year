@@ -6,10 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>BEST MOVIES</h1>
-    
+    <h1>SINGLE MOVIE</h1>
 
-    <h3>[[${movies}]]</h3>
+    <th:block th:if="${movie != null}" th:object="${movie}">
+        <th:block th:if="${id > 0}">
+            <h3>[[*{title}]]</h3>
+        </th:block>
+    </th:block> 
 
 </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <th:block th:replace="~{fragments/header :: header}"></th:block>
+
+    <main class="py-5">
+        <th:block th:replace="~{fragments/elements :: show-elements(${elements}, ${linkElement})}"></th:block>
+    </main>
+</body>
+</html>

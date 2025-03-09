@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/movies")
 public class MoviesController {
     
-    private String getBestMovies(){
-        String str = "";
+    // private String getBestMovies(){
+    //     String str = "";
 
-        for(int i = 0; i < movies.length; i++){
-            str += movies[i].getTitle() + (i < movies.length-1 ? ", " : "");
-        }
+    //     for(int i = 0; i < movies.length; i++){
+    //         str += movies[i].getTitle() + (i < movies.length-1 ? ", " : "");
+    //     }
 
-        return str;
-    };
+    //     return str;
+    // };
 
     Movie[] movies = new Movie[]{
         new Movie(1, "Inception"),
@@ -37,9 +37,10 @@ public class MoviesController {
     @GetMapping("")
     public String movies(Model model) {
         
-        model.addAttribute("movies", movies);
+        model.addAttribute("elements", movies);
+        model.addAttribute("linkElement", "movies");
         
-        return "movies";
+        return "show-elements";
     }
     
     @GetMapping("/{id}")

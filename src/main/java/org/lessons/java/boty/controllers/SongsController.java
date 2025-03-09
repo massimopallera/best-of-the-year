@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/songs")
 public class SongsController {
     
-    private String getBestSongs(){
-        String str = "";
+    // private String getBestSongs(){
+    //     String str = "";
 
-        for(int i = 0; i < songs.length; i++){
-            str += songs[i].getTitle() + (i < songs.length-1 ? ", " : "");
-        }
+    //     for(int i = 0; i < songs.length; i++){
+    //         str += songs[i].getTitle() + (i < songs.length-1 ? ", " : "");
+    //     }
 
-        return str;
-    };
+    //     return str;
+    // };
 
     Song[] songs = new Song[]{
         new Song(1, "Bohemian Rhapsody"),
@@ -39,9 +39,10 @@ public class SongsController {
     @GetMapping("")
     public String songs(Model model) {
         
-        model.addAttribute("songs", songs);
+        model.addAttribute("elements", songs);
+        model.addAttribute("linkElement", "songs");
         
-        return "songs";
+        return "show-elements";
     }
     
     @GetMapping("/{id}")

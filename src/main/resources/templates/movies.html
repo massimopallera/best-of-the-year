@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+
     <title>Document</title>
 </head>
 <body>
-    <h1>BEST MOVIES</h1>
     
-
-    <h3>[[${movies}]]</h3>
+    <th:block th:replace="~{fragments/header :: header}"></th:block>
+    
+    <main class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-5">BEST MOVIES</h1>
+            <th:block th:if="${movies.length > 0}" th:each="movie : ${movies}" th:object="${movie}">
+                <div class="m-auto border py-3 my-3 w-50">
+                    <a th:href="|/songs/*{id}|" class="text-decoration-none text-black text-decoration-underline">
+                        <h3 class="text-center">[[*{title}]]</h3>
+                    </a>
+                </div>
+            </th:block>
+        </div>
+    </main>
 
 </body>
 </html>
